@@ -1,6 +1,6 @@
 {
   "name": "@durad/algotools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Dusan Radovanovic",
   "main": "dist/index.js",
   "license": "MIT",
