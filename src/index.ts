@@ -9,3 +9,4 @@ export * from './bin-search';
 export * from './bfs-nodes';
 export * from './bfs-keys';
 export * from './nested-loops';
+export * from './combinations';

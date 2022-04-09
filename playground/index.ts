@@ -2,14 +2,9 @@ import { bfsNodes } from '../src/bfs-nodes';
 import { bfsKeys } from '../src/bfs-keys';
 import { matrixPrint } from '../src/matrix-print';
 import { nestedLoopsAllArrays, nestedLoopsCbArrays } from '../src/nested-loops';
+import { combinationsAllArrays, combinationsAllIndexes, combinationsCbIndexes } from '../src/combinations';
 
-const m: any = [
-  ['A', 'B'],
-  ['Q', 'W'],
-  [1, 2, 3],
-];
-
-const result = nestedLoopsAllArrays(m);
+const result = combinationsAllArrays([{ name: 'A' }, { name: 'B' }, { name: 'C' }], 2);
 console.log(result);
 
 // type N = { name: string; links: N[] };
