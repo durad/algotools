@@ -1,31 +1,41 @@
 import { bfsNodes } from '../src/bfs-nodes';
 import { bfsKeys } from '../src/bfs-keys';
 import { matrixPrint } from '../src/matrix-print';
+import { nestedLoopsAllArrays, nestedLoopsCbArrays } from '../src/nested-loops';
 
-type N = { name: string; links: N[] };
+const m: any = [
+  ['A', 'B'],
+  ['Q', 'W'],
+  [1, 2, 3],
+];
 
-const A: N = { name: 'A', links: [] };
-const B: N = { name: 'B', links: [] };
-const C: N = { name: 'C', links: [] };
-const D: N = { name: 'D', links: [] };
-
-A.links.push(B);
-B.links.push(D);
-C.links.push(D);
-
-const result = bfsNodes({
-  initialNodes: [A],
-    visitFn: (node, addNode) => {
-    for (const l of node.links) {
-      addNode(l, l.name);
-    }
-  },
-  // maxLevel: 1
-  // validNode: (node) => node !== C
-});
-
+const result = nestedLoopsAllArrays(m);
 console.log(result);
-// console.log(result.getSteps(D));
+
+// type N = { name: string; links: N[] };
+
+// const A: N = { name: 'A', links: [] };
+// const B: N = { name: 'B', links: [] };
+// const C: N = { name: 'C', links: [] };
+// const D: N = { name: 'D', links: [] };
+
+// A.links.push(B);
+// B.links.push(D);
+// C.links.push(D);
+
+// const result = bfsNodes({
+//   initialNodes: [A],
+//     visitFn: (node, addNode) => {
+//     for (const l of node.links) {
+//       addNode(l, l.name);
+//     }
+//   },
+//   // maxLevel: 1
+//   // validNode: (node) => node !== C
+// });
+
+// console.log(result);
+// // console.log(result.getSteps(D));
 
 
 
