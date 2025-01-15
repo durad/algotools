@@ -24,28 +24,28 @@ export function binSearchFirstPass(start: number, end: number, test: (i: number)
 }
 
 /**
- * `00000[0]1111`
- * Finds last number i in [start, end] inclusive for which test(i) is failing
+ * 111111[0]000
+ * Finds first number i in [start, end] inclusive for which test(i) = 11111000 is failing
  * @param start lower bound of the interval (inclusive)
  * @param end upper bound of the interval (inclusive)
  * @param test testing function
- * @returns last number for which test() fails or null if all are passing
+ * @returns first number for which test() fails or null if all are passing
  */
-export function binSearchLastFail(start: number, end: number, test: (i: number) => boolean) {
-  let l = start;
-  let r = end + 1;
+export function binSearchFirstFail(start: number, end: number, test: (i: number) => boolean) {
+  let l = start - 1;
+  let r = end;
 
   while (l + 1 < r) {
     const m = Math.floor((l + r) / 2);
 
     if (test(m)) {
-      r = m;
-    } else {
       l = m;
+    } else {
+      r = m;
     }
   }
 
-  return test(l) ? null : l;
+  return test(r) ? null : r;
 }
 
 /**
@@ -74,26 +74,26 @@ export function binSearchLastPass(start: number, end: number, test: (i: number) 
 }
 
 /**
- * 111111[0]000
- * Finds first number i in [start, end] inclusive for which test(i) = 11111000 is failing
+ * `00000[0]1111`
+ * Finds last number i in [start, end] inclusive for which test(i) is failing
  * @param start lower bound of the interval (inclusive)
  * @param end upper bound of the interval (inclusive)
  * @param test testing function
- * @returns first number for which test() fails or null if all are passing
+ * @returns last number for which test() fails or null if all are passing
  */
-export function binSearchFirstFail(start: number, end: number, test: (i: number) => boolean) {
-  let l = start - 1;
-  let r = end;
+export function binSearchLastFail(start: number, end: number, test: (i: number) => boolean) {
+  let l = start;
+  let r = end + 1;
 
   while (l + 1 < r) {
     const m = Math.floor((l + r) / 2);
 
     if (test(m)) {
-      l = m;
-    } else {
       r = m;
+    } else {
+      l = m;
     }
   }
 
-  return test(r) ? null : r;
+  return test(l) ? null : l;
 }
